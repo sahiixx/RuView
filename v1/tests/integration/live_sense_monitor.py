@@ -12,9 +12,9 @@ Press Ctrl+C to stop.
 import sys
 import time
 
-from v1.src.sensing.rssi_collector import WindowsWifiCollector
-from v1.src.sensing.feature_extractor import RssiFeatureExtractor
-from v1.src.sensing.classifier import PresenceClassifier
+from src.sensing.rssi_collector import WindowsWifiCollector
+from src.sensing.feature_extractor import RssiFeatureExtractor
+from src.sensing.classifier import PresenceClassifier
 
 SAMPLE_RATE = 2.0       # Hz (netsh is slow, 2 Hz is practical max)
 WINDOW_SEC = 15.0        # Analysis window

@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **AI-assisted E2E validation and bug fixes (ADR-058)** — Full pipeline validation by Manus AI agent
+  - Fixed `DensePoseHead()` missing required `config` argument in `pose_service.py` (blocked API server startup)
+  - Fixed 8 `v1.src.sensing` broken import paths in production source files (`__init__.py`, `backend.py`, `classifier.py`, `feature_extractor.py`, `ws_server.py`)
+  - Fixed 3 test files with broken `v1.src` import paths (`test_sensing.py`, `test_windows_live_sensing.py`, `live_sense_monitor.py`)
+  - Added `tests/conftest.py` with 6 shared fixtures for hardware config, CSI processing, and mock data
+  - Recovered 45 sensing unit tests from collection errors to passing
+  - Verified 754 Rust tests (0 failures) and 302 Python tests across unit/integration/E2E suites
+  - Validated proof pipeline deterministic hash (SHA-256 MATCH)
+  - Launched and verified API server with 26 endpoints responding correctly
 - **Sensing server UI API completion (ADR-043)** — 14 fully-functional REST endpoints for model management, CSI recording, and training control
   - Model CRUD: `GET /api/v1/models`, `GET /api/v1/models/active`, `POST /api/v1/models/load`, `POST /api/v1/models/unload`, `DELETE /api/v1/models/:id`, `GET /api/v1/models/lora/profiles`, `POST /api/v1/models/lora/activate`
   - CSI recording: `GET /api/v1/recording/list`, `POST /api/v1/recording/start`, `POST /api/v1/recording/stop`, `DELETE /api/v1/recording/:id`

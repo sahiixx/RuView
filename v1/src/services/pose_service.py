@@ -109,14 +109,32 @@ class PoseService:
         try:
             # Initialize DensePose model
             if self.settings.pose_model_path:
-                self.densepose_model = DensePoseHead()
+                default_config = {
+                    'input_channels': 64,
+                    'hidden_channels': [128, 256, 512],
+                    'output_channels': 256,
+                    'num_keypoints': 17,
+                    'num_body_parts': 24,
+                    'num_uv_coordinates': 2,
+                    'use_attention': True
+                }
+                self.densepose_model = DensePoseHead(default_config)
                 # Load model weights if path is provided
                 # model_state = torch.load(self.settings.pose_model_path)
                 # self.densepose_model.load_state_dict(model_state)
                 self.logger.info("DensePose model loaded")
             else:
                 self.logger.warning("No pose model path provided, using default model")
-                self.densepose_model = DensePoseHead()
+                default_config = {
+                    'input_channels': 64,
+                    'hidden_channels': [128, 256, 512],
+                    'output_channels': 256,
+                    'num_keypoints': 17,
+                    'num_body_parts': 24,
+                    'num_uv_coordinates': 2,
+                    'use_attention': True
+                }
+                self.densepose_model = DensePoseHead(default_config)
             
             # Initialize modality translation
             config = {

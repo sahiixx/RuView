@@ -1918,6 +1918,15 @@ Complete Rust sensing server, SOTA signal processing, WiFi-Mat disaster response
 
 ---
 
+## 👥 Contributors
+
+| Contributor | Role | Contributions |
+|-------------|------|---------------|
+| [ruvnet](https://github.com/ruvnet) | Creator & Lead | Architecture, Rust port, signal processing, firmware, all ADRs |
+| [Manus AI](https://manus.im) | AI Agent Contributor | E2E pipeline validation, bug fixes (ADR-058), import path fixes, test fixtures, DensePoseHead config fix |
+
+---
+
 ## 📄 License
 
 MIT License — see [LICENSE](LICENSE) for details.

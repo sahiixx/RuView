@@ -40,10 +40,10 @@ pytestmark = pytest.mark.skipif(
     reason="Requires Windows with connected WiFi",
 )
 
-from v1.src.sensing.rssi_collector import WindowsWifiCollector, WifiSample
-from v1.src.sensing.feature_extractor import RssiFeatureExtractor, RssiFeatures
-from v1.src.sensing.classifier import PresenceClassifier, MotionLevel, SensingResult
-from v1.src.sensing.backend import CommodityBackend, Capability
+from src.sensing.rssi_collector import WindowsWifiCollector, WifiSample
+from src.sensing.feature_extractor import RssiFeatureExtractor, RssiFeatures
+from src.sensing.classifier import PresenceClassifier, MotionLevel, SensingResult
+from src.sensing.backend import CommodityBackend, Capability
 
 
 class TestWindowsWifiCollectorLive:
